@@ -113,7 +113,7 @@
         </select>
 
         <label for="elec_cost">Electricity Cost per KWH:</label>
-        <input type="number" class="input" id="elec_cost" value="" placeholder="Enter Electricity Cost per KWH" readonly>
+        <input type="number" class="input" id="elec_cost" value="" placeholder="Please Select State" readonly>
         <p class="reference">Electricity Cost per KWH is calculated based on data reported by the <a href="https://www.eia.gov/electricity/" target="_blank">U.S. Energy Information Administration (EIA)</a></p>
     
         Number of Years in Service (Years):
@@ -131,6 +131,33 @@
         
         <button class="btn" id="btn">Compute TCO</button>
         <input disabled type="text" class="input" id="tco-result">
+        <script>
+          // Retrieve the values from localStorage and set to variables if available
+          let num_of_year = parseFloat(localStorage.getItem('num_of_year_saved')) || 0;
+          let annual_mi = parseFloat(localStorage.getItem('annual_mi_saved')) || 0;
+          
+          
+          const numYearInput = document.getElementById('num_year');
+          const annualMiInput = document.getElementById('annual_mi');
+          
+          
+          // Set the initial values of the input fields to the stored values
+          numYearInput.value = num_of_year;
+          annualMiInput.value = annual_mi;
+         
+          
+          // Listen for input changes and update the variables and localStorage
+          numYearInput.addEventListener('input', function() {
+            num_of_year = parseFloat(this.value);
+            localStorage.setItem('num_of_year_saved', num_of_year);
+          });
+          
+          annualMiInput.addEventListener('input', function() {
+            annual_mi = parseFloat(this.value);
+            localStorage.setItem('annual_mi_saved', annual_mi);
+          });
+          
+        </script>
     </div>
     <script src="index.js"></script>
 </body>
