@@ -5,7 +5,7 @@ body {
   min-height: 100vh;
   justify-content: center;
   align-items: center;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Montserrat', sans-serif;
   color: black;
 }
 
@@ -24,6 +24,7 @@ body {
   cursor: pointer;
   position: relative;
   margin-left: 7px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 #vehicleDropdown:after {
@@ -68,6 +69,7 @@ body {
   -moz-appearance: none;
   cursor: pointer;
   position: relative;
+  font-family: 'Montserrat', sans-serif;
 }
 
 #stateSelect:after {
@@ -109,6 +111,7 @@ body {
   max-width: 600px; /* Increased max-width for a wider container */
   width: 90%;
   backdrop-filter: blur(10px);
+  font-family: 'Montserrat', sans-serif;
 }
 
 
@@ -131,14 +134,14 @@ body {
   text-align: center;
   margin-bottom: 10px; /* Reduced margin */
   color: #333;
-  font-family: 'Roboto', sans-serif; /* Updated font family */
+  font-family: 'Montserrat', sans-serif;
 }
 
 .sub-heading {
   font-size: 18px; /* Adjusted font size */
   color: #555;
   margin-bottom: 8px; /* Reduced margin */
-  font-family: 'Roboto', sans-serif; /* Updated font family */
+  font-family: 'Montserrat', sans-serif;
 }
 
 .input {
@@ -149,7 +152,7 @@ body {
   border-radius: 8px;
   margin: 8px;
   color: #333; /* Text color for input */
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 
