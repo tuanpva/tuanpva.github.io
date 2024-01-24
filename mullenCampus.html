@@ -1,164 +1,279 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TCO Calculator</title>
-    <link rel="icon" href="https://www.investorbrandnetwork.com/wp-content/uploads/muln.png" type="image/png">
-    <link rel="stylesheet" href="style.css">
+    <link
+      rel="icon"
+      href="https://www.investorbrandnetwork.com/wp-content/uploads/muln.png"
+      type="image/png"
+    />
+    <link rel="stylesheet" href="style.css" />
     <style>
-        body {
-            position: relative;
-            background-image: url('mullenCampus.jpg');
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-color: rgba(247, 247, 247, 0.91); 
-            /* Optionally, you can add these properties to enhance image rendering */
-            -webkit-background-size: cover;
-            -moz-background-size: cover;
-            -o-background-size: cover;
-        }
-        body::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: inherit;
-            background-size: cover;
-            filter: blur(6px); /* Adjust the blur intensity as needed */
-            z-index: -12; /* Place the pseudo-element behind the content */
-    }
+      body {
+        position: relative;
+        background-image: url("mullenCampus.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-color: rgba(247, 247, 247, 0.91);
+        /* Optionally, you can add these properties to enhance image rendering */
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+      }
+      body::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: inherit;
+        background-size: cover;
+        filter: blur(6px); /* Adjust the blur intensity as needed */
+        z-index: -12; /* Place the pseudo-element behind the content */
+      }
     </style>
-</head>
-<body>
-    <div class="container">
-        <div class="logo-container">
-          <img src="https://www.investorbrandnetwork.com/wp-content/uploads/muln.png" alt="Mullen Logo" width="150" height="auto">
+  </head>
+  <body>
+    <!-- Parent -->
+    <div class="container" id="3">
+      <div class="logo-container">
+        <img
+          src="https://www.mullenusa.com/hubfs/mullen-4-0/homepage/commercial-logo.svg"
+          alt="Mullen Logo"
+        />
+      </div>
+      <h1 class="main-heading">Total Cost of Ownership Calculator</h1>
+      <h2 class="heading">Select Model:</h2>
+      <div class="model-icons" id="vehicleDropdown" onclick="navigate()">
+        <div class="model-icon" data-value="index.html">
+          <img
+            src="https://mullencommercial.com/hubfs/mullen-4-0/commercial/mullen-one-tile.png"
+            alt="Mullen ONE"
+          />
+          <span>Mullen ONE</span>
         </div>
-        <h1 class="main-heading">Campus Delivery Van</h1>
-        <h2 class="sub-heading">Select Model: </h2>
-        <select id="vehicleDropdown" onchange="navigate()">
-          <option value="" selected disabled>Select Model</option>
-          <option value="index.html">Mullen ONE</option>
-          <option value="mullenThree.html">Mullen THREE</option>
-          <option value="mullenCampus.html">Mullen CAMPUS</option>
-        </select>
-      
-        <script>
-          function navigate() {
-            var selectedValue = document.getElementById("vehicleDropdown").value;
-            if (selectedValue !== "") {
-              window.location.href = selectedValue;
-            }
+        <div class="model-icon flip-horizontal" data-value="mullenThree.html">
+          <img
+            src="https://mullencommercial.com/hubfs/mullen-4-0/commercial/mullen-three-tile.png"
+            alt="Mullen THREE"
+          />
+          <span>Mullen THREE</span>
+        </div>
+        <div class="model-icon" data-value="mullenCampus.html">
+          <img
+            src="https://mullencommercial.com/hubfs/mullen-4-0/commercial/mullen-campus-tile.png"
+            alt="Mullen CAMPUS"
+          />
+          <span>Mullen CAMPUS</span>
+        </div>
+      </div>
+      <script>
+        function navigate() {
+          var selectedValue = event.target
+            .closest(".model-icon")
+            .getAttribute("data-value");
+          if (selectedValue) {
+            window.location.href = selectedValue;
           }
-        </script>
-         <label for="stateSelect">Select State:</label>
-         <select id="stateSelect" class="input">
-         <option value="Alaska">Alaska</option>
-         <option value="Alabama">Alabama</option>
-         <option value="Arizona">Arizona</option>
-         <option value="California">California</option>
-         <option value="Colorado">Colorado</option>
-         <option value="Connecticut">Connecticut</option>
-         <option value="District of Columbia">District of Columbia</option>
-         <option value="Delaware">Delaware</option>
-         <option value="Florida">Florida</option>
-         <option value="Georgia">Georgia</option>
-         <option value="Hawaii">Hawaii</option>
-         <option value="Iowa">Iowa</option>
-         <option value="Idaho">Idaho</option>
-         <option value="Illinois">Illinois</option>
-         <option value="Indiana">Indiana</option>
-         <option value="Kansas">Kansas</option>
-         <option value="Kentucky">Kentucky</option>
-         <option value="Louisiana">Louisiana</option>
-         <option value="Massachusetts">Massachusetts</option>
-         <option value="Maryland">Maryland</option>
-         <option value="Maine">Maine</option>
-         <option value="Michigan">Michigan</option>
-         <option value="Minnesota">Minnesota</option>
-         <option value="Missouri">Missouri</option>
-         <option value="Mississippi">Mississippi</option>
-         <option value="Montana">Montana</option>
-         <option value="North Carolina">North Carolina</option>
-         <option value="North Dakota">North Dakota</option>
-         <option value="Nebraska">Nebraska</option>
-         <option value="New Hampshire">New Hampshire</option>
-         <option value="New Jersey">New Jersey</option>
-         <option value="New Mexico">New Mexico</option>
-         <option value="Nevada">Nevada</option>
-         <option value="New York">New York</option>
-         <option value="Ohio">Ohio</option>
-         <option value="Oklahoma">Oklahoma</option>
-         <option value="Oregon">Oregon</option>
-         <option value="Pennsylvania">Pennsylvania</option>
-         <option value="Rhode Island">Rhode Island</option>
-         <option value="South Carolina">South Carolina</option>
-         <option value="South Dakota">South Dakota</option>
-         <option value="Tennessee">Tennessee</option>
-         <option value="Texas">Texas</option>
-         <option value="Utah">Utah</option>
-         <option value="Virginia">Virginia</option>
-         <option value="Vermont">Vermont</option>
-         <option value="Washington">Washington</option>
-         <option value="Wisconsin">Wisconsin</option>
-         <option value="West Virginia">West Virginia</option>
-         <option value="Wyoming">Wyoming</option>
-         <option value="USA Avg">USA Avg</option>
+        }
+      </script>
 
-        </select>
+      <label for="stateSelect">Select State:</label>
+      <select id="stateSelect" class="input">
+        <option value="test"></option>
+        <option value="Alaska">Alaska</option>
+        <option value="Alabama">Alabama</option>
+        <option value="Arizona">Arizona</option>
+        <option value="California">California</option>
+        <option value="Colorado">Colorado</option>
+        <option value="Connecticut">Connecticut</option>
+        <option value="District of Columbia">District of Columbia</option>
+        <option value="Delaware">Delaware</option>
+        <option value="Florida">Florida</option>
+        <option value="Georgia">Georgia</option>
+        <option value="Hawaii">Hawaii</option>
+        <option value="Iowa">Iowa</option>
+        <option value="Idaho">Idaho</option>
+        <option value="Illinois">Illinois</option>
+        <option value="Indiana">Indiana</option>
+        <option value="Kansas">Kansas</option>
+        <option value="Kentucky">Kentucky</option>
+        <option value="Louisiana">Louisiana</option>
+        <option value="Massachusetts">Massachusetts</option>
+        <option value="Maryland">Maryland</option>
+        <option value="Maine">Maine</option>
+        <option value="Michigan">Michigan</option>
+        <option value="Minnesota">Minnesota</option>
+        <option value="Missouri">Missouri</option>
+        <option value="Mississippi">Mississippi</option>
+        <option value="Montana">Montana</option>
+        <option value="North Carolina">North Carolina</option>
+        <option value="North Dakota">North Dakota</option>
+        <option value="Nebraska">Nebraska</option>
+        <option value="New Hampshire">New Hampshire</option>
+        <option value="New Jersey">New Jersey</option>
+        <option value="New Mexico">New Mexico</option>
+        <option value="Nevada">Nevada</option>
+        <option value="New York">New York</option>
+        <option value="Ohio">Ohio</option>
+        <option value="Oklahoma">Oklahoma</option>
+        <option value="Oregon">Oregon</option>
+        <option value="Pennsylvania">Pennsylvania</option>
+        <option value="Rhode Island">Rhode Island</option>
+        <option value="South Carolina">South Carolina</option>
+        <option value="South Dakota">South Dakota</option>
+        <option value="Tennessee">Tennessee</option>
+        <option value="Texas">Texas</option>
+        <option value="Utah">Utah</option>
+        <option value="Virginia">Virginia</option>
+        <option value="Vermont">Vermont</option>
+        <option value="Washington">Washington</option>
+        <option value="Wisconsin">Wisconsin</option>
+        <option value="West Virginia">West Virginia</option>
+        <option value="Wyoming">Wyoming</option>
+        <option value="USA Avg">USA Avg</option>
+      </select>
 
-        <label for="elec_cost">Electricity Cost per KWH:</label>
-        <input type="number" class="input" id="elec_cost" value="" placeholder="Please Select State" readonly>
-        <p class="reference">Electricity Cost per KWH is calculated based on data reported by the <a href="https://www.eia.gov/electricity/" target="_blank">U.S. Energy Information Administration (EIA)</a></p>
-    
-        Number of Years in Service (Years):
-        <input type="number" class="input" id="num_year" value="" placeholder="Enter Number of Years in Service">
-        Annual Mileage (Miles):
-        <input type="number" class="input" id="annual_mi" value="" placeholder="Enter Annual Mileage">
-        <label for="msrp">MSRP ($):</label>
-        <input type="number" class="input" id="msrp" value="23995" readonly>
-        <label for="tax">Tax Credit ($):</label>
-        <input type="number" class="input" id="tax" value="0" >
-        <label for="main_cost">Maintence & Repair Cost (per Mile):</label>
-        <input type="number" class="input" id="main_cost" value="0.031" readonly>
-        <label for="avg_mi">Average Mileage (per Gallon per Kwh):</label>
-        <input type="number" class="input" id="avg_mi" value="4.45" readonly>
-        
-        <button class="btn" id="btn">Compute TCO</button>
-        <input disabled type="text" class="input" id="tco-result">
-        <script>
-          // Retrieve the values from localStorage and set to variables if available
-          let num_of_year = parseFloat(localStorage.getItem('num_of_year_saved')) || 0;
-          let annual_mi = parseFloat(localStorage.getItem('annual_mi_saved')) || 0;
-          
-          
-          const numYearInput = document.getElementById('num_year');
-          const annualMiInput = document.getElementById('annual_mi');
-          
-          
-          // Set the initial values of the input fields to the stored values
-          numYearInput.value = num_of_year;
-          annualMiInput.value = annual_mi;
-         
-          
-          // Listen for input changes and update the variables and localStorage
-          numYearInput.addEventListener('input', function() {
-            num_of_year = parseFloat(this.value);
-            localStorage.setItem('num_of_year_saved', num_of_year);
-          });
-          
-          annualMiInput.addEventListener('input', function() {
-            annual_mi = parseFloat(this.value);
-            localStorage.setItem('annual_mi_saved', annual_mi);
-          });
-          
-        </script>
+      <label for="num_year">Number of Years in Service (Years):</label>
+      <input
+        type="number"
+        class="input"
+        id="num_year"
+        value=""
+        placeholder="Enter Number of Years in Service"
+      />
+
+      <label for="annual_mi">Annual Mileage (Miles):</label>
+      <input
+        type="number"
+        class="input"
+        id="annual_mi"
+        value=""
+        placeholder="Enter Annual Mileage"
+      />
+      <button class="btn" id="btn1">COMPUTE Total Cost of Ownership</button>
     </div>
+
+    <!-- TCO for Mullen -->
+    <div class="container" id="1">
+      <h1 class="main-heading">Mullen Campus Delivery Van</h1>
+
+      <label for="elec_cost">Electricity Cost per KWH:</label>
+      <input
+        type="number"
+        class="input"
+        id="elec_cost"
+        value=""
+        placeholder="Please Select State"
+        readonly
+      />
+      <p class="reference">
+        Electricity Cost Per KWH Is Calculated Based On Data Reported By The
+        <a href="https://www.eia.gov/electricity/" target="_blank"
+          ><u>U.S. Energy Information Administration (EIA)</u></a
+        >
+      </p>
+
+      <label for="msrp1">MSRP ($):</label>
+      <input type="number" class="input" id="msrp1" value="23995" />
+      <label for="tax1">Tax Credit ($):</label>
+      <input type="number" class="input" id="tax1" value="7500" />
+      <label for="main_cost1">Maintence & Repair Cost (per Mile):</label>
+      <input
+        type="number"
+        class="input"
+        id="main_cost1"
+        value="0.031"
+        readonly
+      />
+      <label for="avg_mi1">Average Mileage (per Gallon per Kwh):</label>
+      <input type="number" class="input" id="avg_mi1" value="4.45" readonly />
+
+      <label for="tco-result" id="tco-result-label"
+        >Total Cost of Ownership</label
+      >
+      <input disabled type="text" class="input" id="tco-result1" />
+    </div>
+
+    <!-- TCO for ICE -->
+
+    <div class="container" id="2">
+      <h1 class="main-heading">Class 1 ICE Van</h1>
+
+      <label for="gas_cost">Current Regular Gas Cost:</label>
+      <input
+        type="number"
+        class="input"
+        id="gas_cost"
+        value=""
+        placeholder="Please Select State"
+        readonly
+      />
+      <p class="reference">
+        Current Regular Gas Cost Is Calculated Based On Data Reported By The
+        <a
+          href="https://gasprices.aaa.com/state-gas-price-averages/"
+          target="_blank"
+          ><u>AAA Gas Prices</u></a
+        >
+      </p>
+
+      <!--<label for ="num_year">Number of Years in Service (Years):</label>
+      <input type="number" class="input" id="num_year" value="" placeholder="Enter Number of Years in Service"> 
+      
+      <label for ="annual_mi">Annual Mileage (Miles):</label>
+      <input type="number" class="input" id="annual_mi" value="" placeholder="Enter Annual Mileage"> -->
+      <label for="msrp2">MSRP ($):</label>
+      <input type="number" class="input" id="msrp2" value="34100" />
+      <label for="tax2">Incentives ($):</label>
+      <input type="number" class="input" id="tax2" value="500" />
+      <label for="main_cost2">Maintence & Repair Cost (per Mile):</label>
+      <input
+        type="number"
+        class="input"
+        id="main_cost2"
+        value="0.061"
+        readonly
+      />
+      <label for="avg_mi2">Average Mileage (per Gallon per Kwh):</label>
+      <input type="number" class="input" id="avg_mi2" value="26" readonly />
+
+      <label for="tco-result2" id="tco-result-label"
+        >Total Cost of Ownership</label
+      >
+      <input disabled type="text" class="input" id="tco-result2" />
+    </div>
+
+    <script>
+      // Retrieve the values from localStorage and set to variables if available
+      let num_of_year =
+        parseFloat(localStorage.getItem("num_of_year_saved")) || 0;
+      let annual_mi = parseFloat(localStorage.getItem("annual_mi_saved")) || 0;
+
+      const numYearInput = document.getElementById("num_year");
+      const annualMiInput = document.getElementById("annual_mi");
+
+      // Set the initial values of the input fields to the stored values
+      numYearInput.value = num_of_year;
+      annualMiInput.value = annual_mi;
+
+      // Listen for input changes and update the variables and localStorage
+      numYearInput.addEventListener("input", function () {
+        num_of_year = parseFloat(this.value);
+        localStorage.setItem("num_of_year_saved", num_of_year);
+      });
+
+      annualMiInput.addEventListener("input", function () {
+        annual_mi = parseFloat(this.value);
+        localStorage.setItem("annual_mi_saved", annual_mi);
+      });
+    </script>
+
     <script src="index.js"></script>
-</body>
+  </body>
 </html>
