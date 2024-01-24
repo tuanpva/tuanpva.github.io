@@ -5,57 +5,65 @@ body {
   min-height: 100vh;
   justify-content: center;
   align-items: center;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   color: black;
 }
 
-#vehicleDropdown {
-  padding: 12px;
-  font-size: 16px;
-  border: 2px solid lightblue;
-  border-radius: 8px;
-  width: 250px;
-  margin-bottom: 20px;
-  background-color: white;
-  color: black;
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
+/* Styles for the model icons */
+.model-icons {
+  display: flex;
+  gap: 10px;
   cursor: pointer;
-  position: relative;
-  margin-left: 7px;
-  font-family: 'Montserrat', sans-serif;
+  justify-content: center; /* Center the icons horizontally */
 }
 
-#vehicleDropdown:after {
-  content: '\25BC';
-  position: absolute;
-  top: calc(50% - 8px);
-  right: 10px;
-  pointer-events: none;
-  color: lightblue;
-  transition: transform 0.3s ease;
+.model-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  padding: 10px; /* Add padding for spacing and appeal */
+  border: 2px solid lightblue; /* Border color for each icon */
+  border-radius: 8px;
+  transition: border 0.3s ease; /* Smooth transition for border changes */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  margin: 0 30px;
 }
 
-#vehicleDropdown:focus:after {
-  transform: rotate(180deg);
+.model-icon:hover {
+  border: 2px solid lightgreen; /* Change border color on hover */
 }
 
-#vehicleDropdown option {
-  background-color: lightblue;
-  color: black;
-  padding: 10px;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  text-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+.model-icon img {
+  width: 100px; /* Adjust the size as needed */
+  height: auto;
+  border-radius: 8px;
 }
 
-#vehicleDropdown option:checked {
-  background-color: lightgreen;
-  color: black;
+.model-icon span {
+  margin-top: 5px;
+  font-size: 14px;
+  color: #333; /* Text color for model name */
+}
+
+.model-icon.flip-horizontal img {
+  transform: scaleX(
+    -1
+  ); /* Flip the image horizontally for the specified class */
+}
+
+.model-icon.flip-horizontal span {
+  margin-top: 14px; /* Adjust the margin as needed */
+}
+
+/* Additional styling for the selected model */
+.model-icon.selected {
+  border: 2px solid lightgreen;
+  background-color: lightgreen; /* Add background color to highlight the selected icon */
 }
 
 /* Apply styles to the dropdown */
-#stateSelect {
+#stateSelect1 {
   padding: 12px;
   font-size: 16px;
   border: 2px solid lightblue;
@@ -69,13 +77,15 @@ body {
   -moz-appearance: none;
   cursor: pointer;
   position: relative;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
+  margin-top: 10px;
 }
 
 #stateSelect:after {
-  content: '\25BC';
+  content: "\25BC";
   position: absolute;
-  top: calc(50% - 8px);
+  top: 50%;
+  transform: translateY(-50%);
   right: 10px;
   pointer-events: none;
   color: lightblue;
@@ -83,11 +93,11 @@ body {
 }
 
 #stateSelect:focus:after {
-  transform: rotate(180deg);
+  transform: translateY(-50%) rotate(180deg);
 }
 
 #stateSelect option {
-  background-color: lightblue;
+  background-color: light;
   color: black;
   padding: 10px;
   transition: background-color 0.3s ease, color 0.3s ease;
@@ -95,10 +105,9 @@ body {
 }
 
 #stateSelect option:checked {
-  background-color: lightgreen;
+  background-color: rgb(39, 132, 39);
   color: black;
 }
-
 
 .container {
   background: rgba(255, 255, 255, 0.9);
@@ -106,73 +115,90 @@ body {
   display: flex;
   border-radius: 8px;
   flex-direction: column;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, .5);
-  margin: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
   max-width: 600px; /* Increased max-width for a wider container */
   width: 90%;
   backdrop-filter: blur(10px);
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
+  margin: auto;
 }
 
+label {
+  margin-top: 10px;
+  margin-left: 10px; /* Adjust as needed for spacing */
+  font-size: 18px; /* Adjusted font size */
+  color: #000000;
+  margin-bottom: 8px; /* Reduced margin */
+  font-family: "Montserrat", sans-serif;
+}
+
+.customLabel {
+  margin-top: 20px;
+}
 
 /* Updated styles for logo container */
 .logo-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 30px; /* Adjusted margin */
 }
 
 .logo-container img {
-  width: 150px; /* Adjusted width for the logo */
+  width: 250px; /* Adjusted width for the logo */
   height: auto;
 }
 
 /* Updated styles for main-heading and sub-heading */
+.heading {
+  margin-left: 12px;
+}
+
 .main-heading {
   font-size: 32px; /* Adjusted font size */
   text-align: center;
   margin-bottom: 10px; /* Reduced margin */
   color: #333;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 .sub-heading {
   font-size: 18px; /* Adjusted font size */
   color: #555;
   margin-bottom: 8px; /* Reduced margin */
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
+  margin-left: 8px;
 }
 
 .input {
-  padding: 12px; /* Adjusted input padding */
+  padding: 18px; /* Adjusted input padding */
   font-size: 16px;
   background-color: white; /* Background color for input */
   border: 2px solid lightblue; /* Border matching vehicleDropdown */
   border-radius: 8px;
-  margin: 8px;
+  margin: 12px 8px; /* Added more margin between inputs */
   color: #333; /* Text color for input */
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
-
 .btn {
-  background-color: lightblue;
+  background-color: rgba(37, 218, 148, 0.678);
   border: none;
-  padding: 12px 24px;
+  padding: 24px 24px;
   border-radius: 8px;
-  margin: 10px;
-  font-size: 20px;
+  margin: 20px;
+  font-size: 25px;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
   cursor: pointer;
-  color: black;
+  color: white;
+  font-weight: bold;
   transition: all 0.3s ease;
+  margin-top: 25px;
 }
 
 .btn:hover {
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
   transform: scale(1.05);
-  background-color: lightgreen;
+  background-color: rgba(37, 218, 118, 0.801);
 }
 
 .info-text {
@@ -181,18 +207,33 @@ body {
 }
 
 .reference {
-  font-size: 12px;
+  font-size: 10.5px;
   margin-top: 5px;
-  font-style: italic;
   text-align: center;
 }
 
 .reference a {
-  color: #007bff; /* Change the link color as desired */
-  text-decoration: none;
-}
-
-.reference a:hover {
   text-decoration: underline;
+  color: black;
+  white-space: nowrap;
 }
 
+.input-container {
+  text-align: center;
+}
+
+#tco-result-label {
+  color: rgba(37, 218, 148, 0.678);
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+#tco-result1 {
+  color: rgba(37, 218, 148, 0.678);
+  margin-top: 5px;
+}
+
+#tco-result2 {
+  color: rgba(37, 218, 148, 0.678);
+  margin-top: 5px;
+}
