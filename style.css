@@ -1,312 +1,257 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TCO Calculator</title>
-    <link
-      rel="icon"
-      href="https://www.investorbrandnetwork.com/wp-content/uploads/muln.png"
-      type="image/png"
-    />
-    <link rel="stylesheet" href="style.css" />
-    <style>
-      body {
-        position: relative;
-        background-image: url("mullenCampus.jpg");
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-color: rgba(247, 247, 247, 0.91);
-        /* Optionally, you can add these properties to enhance image rendering */
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-      }
-      body::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-image: inherit;
-        background-size: cover;
-        filter: blur(6px); /* Adjust the blur intensity as needed */
-        z-index: -12; /* Place the pseudo-element behind the content */
-      }
-    </style>
-  </head>
-  <body>
-    <!-- Parent -->
-    <div class="container" id="3">
-      <div class="logo-container">
-        <img
-          src="https://www.mullenusa.com/hubfs/mullen-4-0/homepage/commercial-logo.svg"
-          alt="Mullen Logo"
-        />
-      </div>
-      <h1 class="sub-heading">Select Model:</h1>
-      <div class="model-icons" id="vehicleDropdown" onclick="navigate()">
-        <div class="model-icon" data-value="index.html">
-          <img
-            src="https://mullencommercial.com/hubfs/mullen-4-0/commercial/mullen-one-tile.png"
-            alt="Mullen ONE"
-          />
-          <img src="mullenOneLogo.png" alt="Mullen ONE Logo" />
-        </div>
-        <div class="model-icon" data-value="mullenThree.html">
-          <div class="flip-horizontal">
-            <img
-              src="https://mullencommercial.com/hubfs/mullen-4-0/commercial/mullen-three-tile.png"
-              alt="Mullen THREE"
-            />
-          </div>
-          <img src="mullenThreeLogo.png" alt="Mullen Three Logo" />
-        </div>
-        <div class="model-icon" data-value="mullenCampus.html">
-          <img
-            src="https://mullencommercial.com/hubfs/mullen-4-0/commercial/mullen-campus-tile.png"
-            alt="Mullen CAMPUS"
-          />
-          <img src="mullenCampusLogo.png" alt="Mullen Campus Logo" />
-        </div>
-      </div>
-      <script>
-        function navigate() {
-          var selectedValue = event.target
-            .closest(".model-icon")
-            .getAttribute("data-value");
-          if (selectedValue) {
-            window.location.href = selectedValue;
-          }
-        }
-      </script>
+body {
+  margin: 0;
+  background: linear-gradient(to left bottom, lightgreen, lightblue);
+  display: flex;
+  grid-template-rows: 1fr auto;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  font-family: "Montserrat", sans-serif;
+  color: black;
+}
+.container {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 15px; /* Increased padding for more space */
+  display: flex;
+  flex-wrap: nowrap;
+  border-radius: 10px;
+  flex-direction: column;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  max-width: 500px; /* Increased max-width for a wider container */
+  width: 100%;
+  backdrop-filter: blur(10px);
+  font-family: "Montserrat", sans-serif;
+  margin: auto;
+}
+.container > div {
+  flex: 0 0 auto; /* Prevent containers from stretching */
+  margin-right: 10px; /* Adjust spacing between containers */
+}
+#disclaimer {
+  background-color: #f8f8f8;
+  padding: 20px;
+  border-radius: 10px;
+  font-size: 12.5px; /* Adjusted font size for better readability */
+  color: #555; /* Changed text color for a more subtle appearance */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Added box shadow for a subtle lift */
+}
 
-      <label for="stateSelect" class="customLabel">Select Your State:</label>
-      <select id="stateSelect" class="input">
-        <option value="test"></option>
-        <option value="Alaska">Alaska</option>
-        <option value="Alabama">Alabama</option>
-        <option value="Arizona">Arizona</option>
-        <option value="California">California</option>
-        <option value="Colorado">Colorado</option>
-        <option value="Connecticut">Connecticut</option>
-        <option value="District of Columbia">District of Columbia</option>
-        <option value="Delaware">Delaware</option>
-        <option value="Florida">Florida</option>
-        <option value="Georgia">Georgia</option>
-        <option value="Hawaii">Hawaii</option>
-        <option value="Iowa">Iowa</option>
-        <option value="Idaho">Idaho</option>
-        <option value="Illinois">Illinois</option>
-        <option value="Indiana">Indiana</option>
-        <option value="Kansas">Kansas</option>
-        <option value="Kentucky">Kentucky</option>
-        <option value="Louisiana">Louisiana</option>
-        <option value="Massachusetts">Massachusetts</option>
-        <option value="Maryland">Maryland</option>
-        <option value="Maine">Maine</option>
-        <option value="Michigan">Michigan</option>
-        <option value="Minnesota">Minnesota</option>
-        <option value="Missouri">Missouri</option>
-        <option value="Mississippi">Mississippi</option>
-        <option value="Montana">Montana</option>
-        <option value="North Carolina">North Carolina</option>
-        <option value="North Dakota">North Dakota</option>
-        <option value="Nebraska">Nebraska</option>
-        <option value="New Hampshire">New Hampshire</option>
-        <option value="New Jersey">New Jersey</option>
-        <option value="New Mexico">New Mexico</option>
-        <option value="Nevada">Nevada</option>
-        <option value="New York">New York</option>
-        <option value="Ohio">Ohio</option>
-        <option value="Oklahoma">Oklahoma</option>
-        <option value="Oregon">Oregon</option>
-        <option value="Pennsylvania">Pennsylvania</option>
-        <option value="Rhode Island">Rhode Island</option>
-        <option value="South Carolina">South Carolina</option>
-        <option value="South Dakota">South Dakota</option>
-        <option value="Tennessee">Tennessee</option>
-        <option value="Texas">Texas</option>
-        <option value="Utah">Utah</option>
-        <option value="Virginia">Virginia</option>
-        <option value="Vermont">Vermont</option>
-        <option value="Washington">Washington</option>
-        <option value="Wisconsin">Wisconsin</option>
-        <option value="West Virginia">West Virginia</option>
-        <option value="Wyoming">Wyoming</option>
-        <option value="USA Avg">USA Avg</option>
-      </select>
+/* Styles for the model icons */
+.model-icons {
+  display: flex;
+  cursor: pointer;
+  justify-content: center; /* Center the icons horizontally */
+}
 
-      <label for="num_year">Number of Years in Service (Years):</label>
-      <input
-        type="number"
-        class="input"
-        id="num_year"
-        value=""
-        placeholder="Enter Number of Years in Service"
-      />
+.model-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  padding: 10px; /* Add padding for spacing and appeal */
+  border: 2px solid lightblue; /* Border color for each icon */
+  border-radius: 8px;
+  transition: transform 0.3s ease, border 0.3s ease; /* Smooth transition for scale and border changes */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  margin: auto;
+}
 
-      <label for="annual_mi">Annual Mileage (Miles):</label>
-      <input
-        type="number"
-        class="input"
-        id="annual_mi"
-        value=""
-        placeholder="Enter Annual Mileage"
-      />
-      <button class="btn" id="btn1">Compute Total Cost of Ownership</button>
-      <div id="disclaimer">
-        <p>
-          <strong>Disclaimer:</strong>
-          The Manufacturer’s Suggested Retail Price (MSRP) excludes destination
-          freight charge, tax, title, license, dealer fees and optional
-          equipment. Dealer sets final price. All figures are based on a
-          comparison to competing internal combustion engine variants. Fuel
-          prices are published by AAA and electricity prices are published by
-          The U.S. Energy Information Administration (EIA), Mullen does not
-          guarantee exact or correct figures from these sources. The Commercial
-          Clean Vehicle Credit is an available federal tax credit from the
-          Internal Revenue Service (IRS) and is subject to availability and
-          qualification. Mullen does not guarantee Federal, State or Local tax
-          incentives on any of its products.
-        </p>
-      </div>
-    </div>
+.model-icon.selected,
+.model-icon:hover {
+  border: 2px solid rgba(37, 218, 118, 0.801); /* Change border color on hover and when selected */
+  background-color: rgba(
+    37,
+    218,
+    118,
+    0.801
+  ); /* Add background color to highlight the selected icon */
+  transform: scale(1.1); /* Scale up the icon on hover and when selected */
+}
 
-    <!-- TCO for Mullen -->
-    <div class="container" id="1">
-      <h1 class="heading">2021 Mullen CAMPUS Cargo Van</h1>
+.model-icon img {
+  width: 100px; /* Adjust the size as needed */
+  height: auto;
+  border-radius: 8px;
+}
 
-      <label for="elec_cost">Electricity Cost per KWH:*</label>
-      <input
-        type="number"
-        class="input"
-        id="elec_cost"
-        value=""
-        placeholder="Please Select State"
-        readonly
-      />
-      <p class="reference">
-        *Electricity Cost Per KWH Is Calculated Based On Data From The
-        <a href="https://www.eia.gov/electricity/" target="_blank"
-          ><u>Energy Information Administration</u></a
-        >
-      </p>
+.model-icon span {
+  margin-top: 5px;
+  font-size: 13px;
+  color: #333; /* Text color for model name */
+  font-family: "Montserrat", sans-serif;
+}
 
-      <label for="msrp1">MSRP ($):</label>
-      <input type="number" class="input" id="msrp1" value="23995" />
-      <label for="tax1">Tax Credit ($):</label>
-      <input type="number" class="input" id="tax1" value="7500" />
-      <label for="main_cost1">Maintence & Repair Cost (per Mile):*</label>
-      <input
-        type="number"
-        class="input"
-        id="main_cost1"
-        value="0.031"
-        readonly
-      />
-      <p class="reference">
-        *Maintence & Repair Cost Is Calculated Based On Data From The
-        <a
-          href="https://advocacy.consumerreports.org/wp-content/uploads/2020/09/Maintenance-Cost-White-Paper-9.24.20-1.pdf"
-          target="_blank"
-          ><u>Consumer Reports</u></a
-        >
-      </p>
-      <label for="avg_mi1">Average Mileage (per Gallon per Kwh):</label>
-      <input type="number" class="input" id="avg_mi1" value="4.45" readonly />
+.flip-horizontal img {
+  transform: scaleX(
+    -1
+  ); /* Flip the image horizontally for the specified class */
+}
 
-      <label for="tco-result" id="tco-result-label"
-        >Total Cost of Ownership</label
-      >
-      <input disabled type="text" class="input" id="tco-result1" />
-    </div>
+.model-icon.flip-horizontal span {
+  margin-top: 14px; /* Adjust the margin as needed */
+}
 
-    <!-- TCO for ICE -->
+/* Additional styling for the selected model */
 
-    <div class="container" id="2">
-      <h1 class="heading">2023 Class 1 ICE Van</h1>
+/* Apply styles to the dropdown */
+#stateSelect1 {
+  padding: 12px;
+  font-size: 16px;
+  border: 2px solid lightblue;
+  border-radius: 8px;
+  width: 250px;
+  margin-bottom: 20px;
+  background-color: white;
+  color: black;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+  position: relative;
+  font-family: "Montserrat", sans-serif;
+  margin-top: 10px;
+}
 
-      <label for="gas_cost">Regular Gas Cost:*</label>
-      <input
-        type="number"
-        class="input"
-        id="gas_cost"
-        value=""
-        placeholder="Please Select State"
-        readonly
-      />
-      <p class="reference">
-        *Regular Gas Cost Is Calculated Based On Data From The
-        <a
-          href="https://gasprices.aaa.com/state-gas-price-averages/"
-          target="_blank"
-          ><u>AAA Gas Prices</u></a
-        >
-      </p>
+#stateSelect:after {
+  content: "\25BC";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 10px;
+  pointer-events: none;
+  color: lightblue;
+  transition: transform 0.3s ease;
+}
 
-      <!--<label for ="num_year">Number of Years in Service (Years):</label>
-      <input type="number" class="input" id="num_year" value="" placeholder="Enter Number of Years in Service"> 
-      
-      <label for ="annual_mi">Annual Mileage (Miles):</label>
-      <input type="number" class="input" id="annual_mi" value="" placeholder="Enter Annual Mileage"> -->
-      <label for="msrp2">MSRP ($):</label>
-      <input type="number" class="input" id="msrp2" value="34100" />
-      <label for="tax2">Incentives ($):</label>
-      <input type="number" class="input" id="tax2" value="500" />
-      <label for="main_cost2">Maintence & Repair Cost (per Mile)*:</label>
-      <input
-        type="number"
-        class="input"
-        id="main_cost2"
-        value="0.061"
-        readonly
-      />
-      <p class="reference">
-        *Maintence & Repair Cost Is Calculated Based On Data From The
-        <a
-          href="https://advocacy.consumerreports.org/wp-content/uploads/2020/09/Maintenance-Cost-White-Paper-9.24.20-1.pdf"
-          target="_blank"
-          ><u>Consumer Reports</u></a
-        >
-      </p>
-      <label for="avg_mi2">Average Mileage (per Gallon per Kwh):</label>
-      <input type="number" class="input" id="avg_mi2" value="26" readonly />
+#stateSelect:focus:after {
+  transform: translateY(-50%) rotate(180deg);
+}
 
-      <label for="tco-result2" id="tco-result-label"
-        >Total Cost of Ownership</label
-      >
-      <input disabled type="text" class="input" id="tco-result2" />
-    </div>
+#stateSelect option {
+  background-color: light;
+  color: black;
+  padding: 10px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+}
 
-    <script>
-      // Retrieve the values from localStorage and set to variables if available
-      let num_of_year =
-        parseFloat(localStorage.getItem("num_of_year_saved")) || 0;
-      let annual_mi = parseFloat(localStorage.getItem("annual_mi_saved")) || 0;
+#stateSelect option:checked {
+  background-color: rgb(39, 132, 39);
+  color: black;
+}
 
-      const numYearInput = document.getElementById("num_year");
-      const annualMiInput = document.getElementById("annual_mi");
+label {
+  margin-top: 10px;
+  margin-left: 10px; /* Adjust as needed for spacing */
+  font-size: 18px; /* Adjusted font size */
+  color: #000000;
+  margin-bottom: 8px; /* Reduced margin */
+  font-family: "Montserrat", sans-serif;
+}
 
-      // Set the initial values of the input fields to the stored values
-      numYearInput.value = num_of_year;
-      annualMiInput.value = annual_mi;
+.customLabel {
+  margin-top: 20px;
+}
 
-      // Listen for input changes and update the variables and localStorage
-      numYearInput.addEventListener("input", function () {
-        num_of_year = parseFloat(this.value);
-        localStorage.setItem("num_of_year_saved", num_of_year);
-      });
+/* Updated styles for logo container */
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-      annualMiInput.addEventListener("input", function () {
-        annual_mi = parseFloat(this.value);
-        localStorage.setItem("annual_mi_saved", annual_mi);
-      });
-    </script>
+.logo-container img {
+  width: 200px; /* Adjusted width for the logo */
+  height: auto;
+}
 
-    <script src="index.js"></script>
-  </body>
-</html>
+/* Updated styles for main-heading and sub-heading */
+
+.heading {
+  font-size: 27px; /* Adjusted font size */
+  text-align: center;
+  margin-bottom: 30px; /* Reduced margin */
+  color: #333;
+  font-family: "Montserrat", sans-serif;
+  margin-left: 12px;
+}
+
+.sub-heading {
+  font-size: 20px; /* Adjusted font size */
+  color: #1a1919;
+  margin-bottom: 15px; /* Reduced margin */
+  font-family: "Montserrat", sans-serif;
+  margin-left: 8px;
+}
+
+.input {
+  padding: 18px; /* Adjusted input padding */
+  font-size: 16px;
+  background-color: white; /* Background color for input */
+  border: 2px solid lightblue; /* Border matching vehicleDropdown */
+  border-radius: 8px;
+  margin: 12px 8px; /* Added more margin between inputs */
+  color: #333; /* Text color for input */
+  font-family: "Montserrat", sans-serif;
+}
+
+.btn {
+  background-color: rgba(37, 218, 148, 0.678);
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  margin: 20px;
+  font-size: 25px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  margin-top: 25px;
+}
+
+.btn:hover {
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+  transform: scale(1.05);
+  background-color: rgba(37, 218, 118, 0.801);
+}
+
+.info-text {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.reference {
+  margin-left: 10px;
+  font-size: 11px;
+  margin-top: auto;
+}
+
+.reference a {
+  text-decoration: underline;
+  color: black;
+  white-space: nowrap;
+}
+
+.input-container {
+  text-align: center;
+}
+
+#tco-result-label {
+  color: rgba(37, 218, 148, 0.678);
+  font-weight: bold;
+  margin-top: auto;
+  padding: 12px 24px;
+  font-size: 25px;
+  text-align: center;
+}
+
+#tco-result1 {
+  color: rgba(37, 218, 148, 0.678);
+  margin-top: 5px;
+}
+
+#tco-result2 {
+  color: rgba(37, 218, 148, 0.678);
+  margin-top: 5px;
+}
