@@ -47,29 +47,30 @@
           alt="Mullen Logo"
         />
       </div>
-      <h1 class="main-heading">Total Cost of Ownership Calculator</h1>
-      <h2 class="heading">Select Model:</h2>
+      <h1 class="sub-heading">Select Model:</h1>
       <div class="model-icons" id="vehicleDropdown" onclick="navigate()">
         <div class="model-icon" data-value="index.html">
           <img
             src="https://mullencommercial.com/hubfs/mullen-4-0/commercial/mullen-one-tile.png"
             alt="Mullen ONE"
           />
-          <span>Mullen ONE</span>
+          <img src="mullenOneLogo.png" alt="Mullen ONE Logo" />
         </div>
-        <div class="model-icon flip-horizontal" data-value="mullenThree.html">
-          <img
-            src="https://mullencommercial.com/hubfs/mullen-4-0/commercial/mullen-three-tile.png"
-            alt="Mullen THREE"
-          />
-          <span>Mullen THREE</span>
+        <div class="model-icon" data-value="mullenThree.html">
+          <div class="flip-horizontal">
+            <img
+              src="https://mullencommercial.com/hubfs/mullen-4-0/commercial/mullen-three-tile.png"
+              alt="Mullen THREE"
+            />
+          </div>
+          <img src="mullenThreeLogo.png" alt="Mullen Three Logo" />
         </div>
         <div class="model-icon" data-value="mullenCampus.html">
           <img
             src="https://mullencommercial.com/hubfs/mullen-4-0/commercial/mullen-campus-tile.png"
             alt="Mullen CAMPUS"
           />
-          <span>Mullen CAMPUS</span>
+          <img src="mullenCampusLogo.png" alt="Mullen Campus Logo" />
         </div>
       </div>
       <script>
@@ -83,7 +84,7 @@
         }
       </script>
 
-      <label for="stateSelect" class="customLabel">Select State:</label>
+      <label for="stateSelect" class="customLabel">Select Your State:</label>
       <select id="stateSelect" class="input">
         <option value="test"></option>
         <option value="Alaska">Alaska</option>
@@ -156,14 +157,30 @@
         value=""
         placeholder="Enter Annual Mileage"
       />
-      <button class="btn" id="btn1">COMPUTE Total Cost of Ownership</button>
+      <button class="btn" id="btn1">Compute Total Cost of Ownership</button>
+      <div id="disclaimer">
+        <p>
+          <strong>Disclaimer:</strong>
+          The Manufacturer’s Suggested Retail Price (MSRP) excludes destination
+          freight charge, tax, title, license, dealer fees and optional
+          equipment. Dealer sets final price. All figures are based on a
+          comparison to competing internal combustion engine variants. Fuel
+          prices are published by AAA and electricity prices are published by
+          The U.S. Energy Information Administration (EIA), Mullen does not
+          guarantee exact or correct figures from these sources. The Commercial
+          Clean Vehicle Credit is an available federal tax credit from the
+          Internal Revenue Service (IRS) and is subject to availability and
+          qualification. Mullen does not guarantee Federal, State or Local tax
+          incentives on any of its products.
+        </p>
+      </div>
     </div>
 
     <!-- TCO for Mullen -->
     <div class="container" id="1">
-      <h1 class="main-heading">Mullen Campus Delivery Van</h1>
+      <h1 class="heading">2021 Mullen CAMPUS Cargo Van</h1>
 
-      <label for="elec_cost">Electricity Cost per KWH:</label>
+      <label for="elec_cost">Electricity Cost per KWH:*</label>
       <input
         type="number"
         class="input"
@@ -173,9 +190,9 @@
         readonly
       />
       <p class="reference">
-        Electricity Cost Per KWH Is Calculated Based On Data Reported By The
+        *Electricity Cost Per KWH Is Calculated Based On Data From The
         <a href="https://www.eia.gov/electricity/" target="_blank"
-          ><u>U.S. Energy Information Administration (EIA)</u></a
+          ><u>Energy Information Administration</u></a
         >
       </p>
 
@@ -183,7 +200,7 @@
       <input type="number" class="input" id="msrp1" value="23995" />
       <label for="tax1">Tax Credit ($):</label>
       <input type="number" class="input" id="tax1" value="7500" />
-      <label for="main_cost1">Maintence & Repair Cost (per Mile):</label>
+      <label for="main_cost1">Maintence & Repair Cost (per Mile):*</label>
       <input
         type="number"
         class="input"
@@ -191,6 +208,14 @@
         value="0.031"
         readonly
       />
+      <p class="reference">
+        *Maintence & Repair Cost Is Calculated Based On Data From The
+        <a
+          href="https://advocacy.consumerreports.org/wp-content/uploads/2020/09/Maintenance-Cost-White-Paper-9.24.20-1.pdf"
+          target="_blank"
+          ><u>Consumer Reports</u></a
+        >
+      </p>
       <label for="avg_mi1">Average Mileage (per Gallon per Kwh):</label>
       <input type="number" class="input" id="avg_mi1" value="4.45" readonly />
 
@@ -203,9 +228,9 @@
     <!-- TCO for ICE -->
 
     <div class="container" id="2">
-      <h1 class="main-heading">Class 1 ICE Van</h1>
+      <h1 class="heading">2023 Class 1 ICE Van</h1>
 
-      <label for="gas_cost">Current Regular Gas Cost:</label>
+      <label for="gas_cost">Regular Gas Cost:*</label>
       <input
         type="number"
         class="input"
@@ -215,7 +240,7 @@
         readonly
       />
       <p class="reference">
-        Current Regular Gas Cost Is Calculated Based On Data Reported By The
+        *Regular Gas Cost Is Calculated Based On Data From The
         <a
           href="https://gasprices.aaa.com/state-gas-price-averages/"
           target="_blank"
@@ -232,7 +257,7 @@
       <input type="number" class="input" id="msrp2" value="34100" />
       <label for="tax2">Incentives ($):</label>
       <input type="number" class="input" id="tax2" value="500" />
-      <label for="main_cost2">Maintence & Repair Cost (per Mile):</label>
+      <label for="main_cost2">Maintence & Repair Cost (per Mile)*:</label>
       <input
         type="number"
         class="input"
@@ -240,6 +265,14 @@
         value="0.061"
         readonly
       />
+      <p class="reference">
+        *Maintence & Repair Cost Is Calculated Based On Data From The
+        <a
+          href="https://advocacy.consumerreports.org/wp-content/uploads/2020/09/Maintenance-Cost-White-Paper-9.24.20-1.pdf"
+          target="_blank"
+          ><u>Consumer Reports</u></a
+        >
+      </p>
       <label for="avg_mi2">Average Mileage (per Gallon per Kwh):</label>
       <input type="number" class="input" id="avg_mi2" value="26" readonly />
 
